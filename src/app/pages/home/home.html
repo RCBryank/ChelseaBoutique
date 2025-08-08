@@ -1,0 +1,11 @@
+<app-layout-webstore>
+    <h2 class="text-3xl font-bold underline">Prueba de comunicacion</h2>
+    <br>
+    @for(weather of weathers; track $index){
+    <div>
+        <p>Fecha: {{weather.date}}</p>
+        <p>Temperatura: {{weather.temperatureC}}</p>
+    </div>
+    <hr>
+    }
+</app-layout-webstore>

@@ -1,0 +1,14 @@
+<app-layout-webstore>
+    <form [formGroup]="formtesttableCreate" class="flex flex-col" (ngSubmit)="SubmitHandler()">
+        <label>
+            Escribe un nombre
+            <input type="text" class="bg-white my-2" formControlName="Name" />
+        </label>
+        <label>
+            Escribe un valor
+            <input type="number" class="bg-white my-2" formControlName="Value">
+        </label>
+        <p>Los valores actualizado que escribiste son <br> <b>{{formtesttableCreate.get("Name")?.value}} </b> y <b>{{formtesttableCreate.get("Value")?.value}}</b> </p>
+        <input type="submit" value="Guardar" class="p-2 bg-red-400 w-fit">
+    </form>
+</app-layout-webstore>
