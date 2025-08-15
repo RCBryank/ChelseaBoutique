@@ -1,12 +1,4 @@
-<h2>Prueba de comunicacion</h2>
-
-@for(weather of weathers; track $index){
-<div>
-  <p>Fecha: {{weather.date}}</p>
-  <p>Temperatura: {{weather.temperatureC}}</p>
-</div>
-<hr>
-}
+<router-outlet></router-outlet>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
@@ -347,6 +339,3 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-<router-outlet />

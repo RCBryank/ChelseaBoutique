@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'CenturyGhotic';
+    font-weight: normal;
+    src: url('/fonts/CenturyGhotic/CenturyGhotic.woff2');
+}
+
+@font-face {
+    font-family: 'Corbel';
+    font-weight: normal;
+    src: url('/fonts/Corbel/Corbel.woff2');
+}
+
+@theme {
+    --font-centuryghotic: "CenturyGhotic", sans-serif;
+    --font-corbel: "Corbel", sans-serif;
+    --color-brand-black: #1b1b1b;
+    --color-brand-blackdarker: #0f0f0f;
+    --color-brand-white: #f1f1f1;
+    --color-brand-gold: #e89e15;
+    --color-brand-golddarker: #a96f04;
+}
+
+body p{
+    font-family: "Corbel", sans-serif
+}
