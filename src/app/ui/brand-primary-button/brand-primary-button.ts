@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-brand-primary-button',
@@ -10,6 +10,12 @@ import { Component, Input } from '@angular/core';
 export class BrandPrimaryButton {
   @Input() anexedclass = '';
   @Input() type = '';
+  @Input() disabled: boolean = false;
+  @Output() clickHandler = new EventEmitter<void>();
+
+  clickEmmiter() {
+    this.clickHandler.emit();
+  }
 
   getClasses() {
     return ' ' + this.anexedclass;

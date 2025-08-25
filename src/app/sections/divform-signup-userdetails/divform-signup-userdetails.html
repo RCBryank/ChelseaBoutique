@@ -1,0 +1,43 @@
+<div [classList]="getClass()" [formGroup]="divformgroup" >
+    <app-brand-h3 class="mb-12 text-center">Registro - Detalles Personales</app-brand-h3>
+    <div class="grid grid-cols-6 gap-12 gap-y-8" formGroupName="UserDetails">
+        <div class="col-span-full md:col-span-2">
+            <app-input-brand Type="text" formControlName="Name" [Errors]="divformgroup.get('UserDetails.Name')?.errors" PlaceholderText="Requerido">Nombre(s)</app-input-brand>
+        </div>
+        <div class="col-span-full md:col-span-2">
+            <app-input-brand Type="text" formControlName="MiddleName">Apellido Paterno</app-input-brand>
+        </div>
+        <div class="col-span-full md:col-span-2">
+            <app-input-brand Type="text" formControlName="LastName">Apellido Materno</app-input-brand>
+        </div>
+        <div class="col-span-full md:col-span-2">
+            <app-input-brand Type="date" formControlName="DateofBirth">Fecha de Nacimiento</app-input-brand>
+        </div>
+        <div class="hidden md:block md:col-span-1">
+
+        </div>
+        <div class="col-span-full md:col-span-4">
+            <app-input-brand Type="text" formControlName="Address">Dirección</app-input-brand>
+        </div>
+        <div class="col-span-full md:col-span-2">
+            <app-input-brand Type="text" formControlName="PostalCode">Codigo Postal</app-input-brand>
+        </div>
+        <div class="col-span-full md:col-span-3">
+            <app-input-brand Type="text" formControlName="City">Ciudad</app-input-brand>
+        </div>
+        <div class="col-span-full md:col-span-3">
+            <app-input-brand Type="text" formControlName="Country">País</app-input-brand>
+        </div>
+        <div class="col-span-full md:col-span-3">
+            <app-input-brand Type="text" formControlName="Phone">Teléfono 1</app-input-brand>
+        </div>
+        <div class="col-span-full md:col-span-3">
+            <app-input-brand Type="text" formControlName="Phone2">Teléfono 2</app-input-brand>
+        </div>
+        <div class="col-span-full text-end">
+            <app-brand-primary-button (clickHandler)="buttonNext()" type="button">Siguiente</app-brand-primary-button>
+        </div>
+    </div>
+    <div>
+    </div>
+</div>

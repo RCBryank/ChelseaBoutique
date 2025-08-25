@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+@import 'animate.css';
 
 @font-face {
     font-family: 'CenturyGhotic';
@@ -13,16 +14,29 @@
     src: url('/fonts/Corbel/Corbel.woff2');
 }
 
+@font-face {
+    font-family: 'Calibri' !important;
+    font-weight: normal;
+    src: url('/fonts/Calibri/Calibri.woff2');
+}
+
+
 @theme {
     --font-centuryghotic: "CenturyGhotic", sans-serif;
     --font-corbel: "Corbel", sans-serif;
+    --font-calibri: "Calibri", sans-serif !important;
     --color-brand-black: #1b1b1b;
     --color-brand-blackdarker: #0f0f0f;
     --color-brand-white: #f1f1f1;
     --color-brand-gold: #e89e15;
     --color-brand-golddarker: #a96f04;
+    --color-brand-darkred: #9e0000;
 }
 
-body p{
-    font-family: "Corbel", sans-serif
+p {
+    font-family: "Corbel", sans-serif;
+}
+
+p.font-calibri {
+    font-family: var(--font-calibri) !important;
 }
