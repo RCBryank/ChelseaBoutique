@@ -1,0 +1,23 @@
+<!--Modal Success-->
+<app-modal-info-brand [ModalParameters]="ModalResultSubmit" [SetShow]="ModalResultSubmit.Show" (AcceptHandler)="ModalResultSubmit.PrimaryAction()">
+</app-modal-info-brand>
+<!--Modal Error-->
+<!--SignUp-->
+<div class="bg-brand-white min-h-screen h-full pt-12 pb-24">
+    <div class="container mx-auto">
+        <div class="mx-auto w-10/12 lg:w-5/12">
+            <a routerLink=""> <img src="images/LandingPage/Logo.png" /></a>
+        </div>
+        <div class="bg-white w-11/12 md:w-9/12 xl:w-7/12 mx-auto p-12 shadow-lg shadow-[#00000033]">
+            <form [formGroup]="formWebUser" (ngSubmit)="SubmitHandler($event)" class="relative">
+                <app-divform-signup-userdetails [divformgroup]="formWebUser"
+                    (EventEmitterButtonNext)="ValidateUserDetails()" [Show]="GetCurrentFormIndex() == 1" />
+                <div>
+                    <app-divform-signup-credentials [divformGroup]="formWebUser"
+                        (EventEmitterButtonPrevious)="NavigatetoForm(1)"
+                        [Show]="GetCurrentFormIndex() == 2 " [isFormonSubmit]="getFormSubmitStatus()"></app-divform-signup-credentials>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
