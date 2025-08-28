@@ -43,7 +43,7 @@ FrontEnd -> NET Core API -> Supabase
 - Obtener token para frontend
 - Habilitar RLS para las tablas de Supabase para que solo el servidor backend pueda insertar
             
-
+go
 <br><br>
 
 ## Notas

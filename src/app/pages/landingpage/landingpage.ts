@@ -6,10 +6,11 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { AuthService } from '../../services/auth-service';
 import { SignInForm, WebUserAuthenticatedInfo } from '../../constants/interfaces';
 import { SYSTEM_MESSAGES } from '../../constants/system-messages';
+import { Linkbrandlandingpage } from '../../ui/linkbrandlandingpage/linkbrandlandingpage';
 
 @Component({
   selector: 'app-landingpage',
-  imports: [BrandH3, InputLine, BrandPrimaryButton, ReactiveFormsModule],
+  imports: [BrandH3, InputLine, BrandPrimaryButton, ReactiveFormsModule,Linkbrandlandingpage],
   templateUrl: './landingpage.html',
   styleUrl: './landingpage.css'
 })
