@@ -12,6 +12,7 @@
     - Eventos - X
 - Layouts
 - Diseño Landing Page
+- Diseño SignUp
 
 ## Conexion Angular - Backend ##
 - Request simple por API al backend
