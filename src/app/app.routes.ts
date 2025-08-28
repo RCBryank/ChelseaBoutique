@@ -3,6 +3,7 @@ import { CreateItem } from './pages/create-item/create-item';
 import { Home } from './pages/home/home';
 import { Landingpage } from './pages/landingpage/landingpage';
 import { Signup } from './pages/signup/signup';
+import { Homepage } from './pages/homepage/homepage';
 
 export const routes: Routes = [
     {
@@ -15,7 +16,7 @@ export const routes: Routes = [
     },
     {
         path: 'home',
-        component: Home
+        component: Homepage
     },
     {
         path: 'crear',

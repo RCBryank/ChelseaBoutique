@@ -12,6 +12,7 @@
     - Eventos - X
 - Layouts
 - Diseño Landing Page
+- Diseño SignUp
 
 ## Conexion Angular - Backend ##
 - Request simple por API al backend
@@ -42,7 +43,7 @@ FrontEnd -> NET Core API -> Supabase
 - Obtener token para frontend
 - Habilitar RLS para las tablas de Supabase para que solo el servidor backend pueda insertar
             
-
+go
 <br><br>
 
 ## Notas

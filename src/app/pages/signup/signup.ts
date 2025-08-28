@@ -2,7 +2,7 @@ import { Component, createComponent, inject, OnInit } from '@angular/core';
 import { DivformSignupUserdetails } from "../../sections/divform-signup-userdetails/divform-signup-userdetails";
 import { DivformSignupCredentials } from "../../sections/divform-signup-credentials/divform-signup-credentials";
 import { AbstractControl, FormControl, FormGroup, FormSubmittedEvent, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
-import { WebuserService } from '../../services/webuser-service';
+import { AuthService } from '../../services/auth-service';
 import { WebUser } from '../../models/web-user.model';
 import { SYSTEM_MESSAGES } from '../../constants/system-messages';
 import { ModalInfoBrand } from '../../ui/modal-info-brand/modal-info-brand';
@@ -21,7 +21,7 @@ export class Signup {
 
   CurrentFormIndex = 1;
 
-  formSignUp = inject(WebuserService);
+  formSignUp = inject(AuthService);
 
   formWebUser: FormGroup = new FormGroup([]);
 
