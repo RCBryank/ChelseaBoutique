@@ -21,9 +21,10 @@ export class InputBrand implements ControlValueAccessor {
   @Input() Classes = '';
   @Input() Errors: ValidationErrors | null | undefined = null;
   @Input() PlaceholderText = '';
+  @Input() DefaultValue: any | null;
 
   value: any = '';
-
+  
   getErrors(): string[] {
     let _errors = [];
 

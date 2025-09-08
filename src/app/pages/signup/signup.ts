@@ -1,7 +1,7 @@
 import { Component, createComponent, inject, OnInit } from '@angular/core';
 import { DivformSignupUserdetails } from "../../sections/divform-signup-userdetails/divform-signup-userdetails";
 import { DivformSignupCredentials } from "../../sections/divform-signup-credentials/divform-signup-credentials";
-import { AbstractControl, FormControl, FormGroup, FormSubmittedEvent, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth-service';
 import { WebUser } from '../../models/web-user.model';
 import { SYSTEM_MESSAGES } from '../../constants/system-messages';
@@ -145,6 +145,7 @@ export class Signup {
       this.FormonSubmit = false;
       return;
     }
+    
 
     const formdata = new FormGroup({
       Name: new FormControl(this.formWebUser.get("UserDetails.Name")?.value),
@@ -200,10 +201,6 @@ export class Signup {
         this.FormonSubmit = false;
       }
     });
-  }
-
-  getShowModal() {
-    return this.ShowModal;
   }
 
   SubmitForm_Success() {
