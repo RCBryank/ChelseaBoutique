@@ -25,8 +25,11 @@ export class AuthService {
     return this.http.post<Config>(this.URLBase + "/login", credentials, { withCredentials: true });
   }
 
-  public StoreWebUser(webuser: WebUser): Observable<any> {
-    return this.http.post<Config>(this.URLBase + "/signup", webuser);
+  public StoreWebUser(webuser: WebUser, file: File | null): Observable<any> {
+    const form = new FormData();
+    form.append("file", file || '');
+    form.append("swebuser", JSON.stringify(webuser));
+    return this.http.post<Config>(this.URLBase + "/signup", form);
   }
 
   public GetUserInfo(): Observable<any> {
