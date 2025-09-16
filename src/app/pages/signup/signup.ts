@@ -57,12 +57,10 @@ export class Signup {
         }),
         Credentials: new FormGroup({
           Email: new FormControl<string>(''),
-          WebUserPassword: new FormControl<string>('', { validators: [Validators.required, Validators.minLength(6), this.ValidateWebUserPassword()] }),
+          WebUserPassword: new FormControl<string>(''),
+          AvatarProfile: new FormControl<File | null>(null, [this.ValidateFileSize(240000)])
         })
       });
-
-    this.formWebUser.get("UserDetails.Name")?.clearValidators();
-    this.formWebUser.get("UserDetails.Name")?.updateValueAndValidity();
   }
 
 
@@ -94,14 +92,28 @@ export class Signup {
     }
   }
 
+  ValidateFileSize(maxSize: number): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+
+      const file = control.value as File;
+      if (!file)
+        return null;
+
+      //console.log(file.size > maxSize);
+
+      if (file.size > maxSize)
+        return { maxFileSizeAllow: true, maxKbSizeAllowed: Math.ceil(maxSize / 1024) }
+
+      return null;
+    }
+  }
+
   static ValidateEmailAvailability(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const value = control.value;
 
       if (!value)
         return null;
-
-
 
       return { emailavailability: true };
     }
@@ -114,11 +126,6 @@ export class Signup {
 
     if (this.formWebUser.get('UserDetails')?.valid == false)
       return;
-
-    this.formWebUser.get("Credentials.Email")?.clearValidators();
-    this.formWebUser.get("Credentials.Email")?.updateValueAndValidity();
-    this.formWebUser.get("Credentials.WebUserPassword")?.clearValidators();
-    this.formWebUser.get("Credentials.WebUserPassword")?.updateValueAndValidity();
 
     this.NavigatetoForm(2);
   }
@@ -138,7 +145,7 @@ export class Signup {
     this.formWebUser.get("Credentials.Email")?.addValidators([Validators.required, Validators.email])
     this.formWebUser.get("Credentials.Email")?.updateValueAndValidity();
 
-    this.formWebUser.get("Credentials.WebUserPassword")?.addValidators([Validators.required])
+    this.formWebUser.get("Credentials.WebUserPassword")?.addValidators([Validators.required, Validators.minLength(6), this.ValidateWebUserPassword()])
     this.formWebUser.get("Credentials.WebUserPassword")?.updateValueAndValidity();
 
     if (!this.formWebUser.valid) {
@@ -163,7 +170,9 @@ export class Signup {
       WebUserPasswordSalt: new FormControl<string>('')
     })
 
-    this.formSignUp.StoreWebUser(formdata.value as WebUser).subscribe({
+    console.log(this.formWebUser.get("Credentials.AvatarProfile")?.value);
+
+    this.formSignUp.StoreWebUser(formdata.value as WebUser, this.formWebUser.get("Credentials.AvatarProfile")?.value).subscribe({
       next: (response) => {
         this.ModalResultSubmit.ModalType = ModalType.INFO;
         this.ModalResultSubmit.Show = true;

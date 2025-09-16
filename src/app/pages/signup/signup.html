@@ -8,7 +8,7 @@
             <a routerLink=""> <img src="images/LandingPage/Logo.png" /></a>
         </div>
         <div class="bg-white w-11/12 md:w-9/12 xl:w-7/12 mx-auto p-12 shadow-lg shadow-[#00000033]">
-            <form [formGroup]="formWebUser" (ngSubmit)="SubmitHandler($event)" class="relative">
+            <form [formGroup]="formWebUser" (ngSubmit)="SubmitHandler($event)" class="relative" enctype="multipart/form-data">
                 <app-divform-signup-userdetails [divformgroup]="formWebUser"
                     (EventEmitterButtonNext)="ValidateUserDetails()" [Show]="GetCurrentFormIndex() == 1" />
                 <div>

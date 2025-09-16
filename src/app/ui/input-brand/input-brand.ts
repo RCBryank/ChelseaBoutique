@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input } from '@angular/core';
+import { Component, EventEmitter, forwardRef, Input, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule, ValidationErrors } from '@angular/forms';
 
 @Component({
@@ -19,9 +19,11 @@ export class InputBrand implements ControlValueAccessor {
   @Input() Label = '';
   @Input() LabelClasses = '';
   @Input() Classes = '';
+  @Input() Accepts = '';
   @Input() Errors: ValidationErrors | null | undefined = null;
   @Input() PlaceholderText = '';
   @Input() DefaultValue: any | null;
+  @Output() EventEmitterValueChanged = new EventEmitter<void>();
 
   value: any = '';
   
@@ -37,6 +39,8 @@ export class InputBrand implements ControlValueAccessor {
         _errors.push("No se ha incluido un dominio de correo válido. Ejemplo: direccióndecorreo@email.com.");
       if (this.Errors["emailavailability"])
         _errors.push("Este correo ya esta en uso.");
+      if(this.Errors["maxFileSizeAllow"])
+        _errors.push("El tamaño maximo de carga es " + this.Errors["maxKbSizeAllowed"] + " KB");
     }
 
     return _errors;
@@ -49,8 +53,16 @@ export class InputBrand implements ControlValueAccessor {
   propagateChange = (_newvalue: any) => { };
 
   prechange(event: Event) {
-    this.value = (event.target as HTMLInputElement)?.value;
-    this.propagateChange((event.target as HTMLInputElement)?.value)
+    if (this.Type == "file") {
+      const input = (event.target as HTMLInputElement);
+      if (input.files) {
+        this.value = input.files[0];
+      }
+    } else {
+      this.value = (event.target as HTMLInputElement)?.value;
+    }
+
+    this.propagateChange(this.value);
   }
 
   registerOnChange(fn: any) {

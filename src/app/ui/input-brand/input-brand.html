@@ -2,7 +2,9 @@
     <p [classList]="'mb-3 text-lg' + getLabelClasses()"> <ng-content></ng-content></p>
     <input [defaultValue]="DefaultValue||''" (change)="prechange($event)" [type]="Type" [classList]="'w-full border-solid border-[1px] py-2 px-1 border-brand-black focus:border-brand-gold focus:text-brand-golddarker transition-colors duration-400 font-corbel outline-hidden placeholder-gray-400 '
         + (Errors!=null?' border-red-500 ':'')
-        + getClasses()" [placeholder]="PlaceholderText" />
+        + getClasses()" 
+        [placeholder]="PlaceholderText"
+        [accept]="Accepts"/>
     <p class="text-sm text-red-900">
         @for (item of getErrors(); track $index) {
         {{item}}
