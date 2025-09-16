@@ -1,0 +1,25 @@
+import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
+
+export const ValidateWebUserPasswordPattern: ValidatorFn = (
+    (control: AbstractControl): ValidationErrors | null => {
+        const value = control.value;
+
+        if (!value) {
+            return null;
+        }
+
+        const hasUpperCase = /[A-Z]+/.test(value);
+
+        const hasLowerCase = /[a-z]+/.test(value);
+
+        const hasNumeric = /[0-9]+/.test(value);
+
+        const specialcharacters = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+
+        const hasSpecialCharacters = specialcharacters.test(value);
+
+        const passwordValid = hasUpperCase && hasLowerCase && hasNumeric && hasSpecialCharacters;
+
+        return !passwordValid ? { passwordStrength: true } : null;
+    }
+)

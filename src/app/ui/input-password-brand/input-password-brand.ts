@@ -15,7 +15,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, ValidationErrors } from '@angu
   ]
 })
 export class InputPasswordBrand implements ControlValueAccessor {
-  @Input() Type = '';
+  @Input() Type = 'password';
   @Input() Label = '';
   @Input() LabelClasses = '';
   @Input() Classes = '';
@@ -40,7 +40,7 @@ export class InputPasswordBrand implements ControlValueAccessor {
     return _errors;
   }
 
-  writeValue(value: string) {
+  writeValue(value: any) {
     this.value = value;
   }
 

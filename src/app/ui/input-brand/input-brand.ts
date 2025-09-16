@@ -22,10 +22,11 @@ export class InputBrand implements ControlValueAccessor {
   @Input() Accepts = '';
   @Input() Errors: ValidationErrors | null | undefined = null;
   @Input() PlaceholderText = '';
+  @Input() DefaultValue: any | null;
   @Output() EventEmitterValueChanged = new EventEmitter<void>();
 
   value: any = '';
-
+  
   getErrors(): string[] {
     let _errors = [];
 

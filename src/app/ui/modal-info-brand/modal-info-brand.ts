@@ -38,14 +38,13 @@ export class ModalInfoBrand {
   @Output() AcceptHandler = new EventEmitter<void>();
 
   ngOnInit() {
-    this.Hidden = true;
-    setTimeout(() => {
-      this.Hidden = false;
-    }, 2000);
-  }
+    this.Hidden = !this.ModalParameters.Show;
 
-  getHidden() {
-    return this.Hidden;
+    if (this.Hidden == true) {
+      setTimeout(() => {
+        this.Hidden = false;
+      }, 2000);
+    }
   }
 
   getBackgroundClassList() {

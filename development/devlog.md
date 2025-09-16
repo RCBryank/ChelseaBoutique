@@ -20,6 +20,7 @@
 - Forms
 - CSR
 - Autenticacion de Usuarios
+- Protected Routes
 
 
 <br>

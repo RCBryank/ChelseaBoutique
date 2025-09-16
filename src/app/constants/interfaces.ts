@@ -24,3 +24,18 @@ export interface WebUserAuthenticatedInfo {
     LastName: string,
     ProfilePhoto: string | null
 }
+
+export interface WebUserProfileExtendedDetailsInfo {
+    Email: string,
+    Name: string,
+    MiddleName: string,
+    LastName: string,
+    ProfilePhoto: string | null,
+    Address: string,
+    PostalCode: string,
+    City: string,
+    Country: string,
+    PhoneNumber: string,
+    PhoneNumber2: string,
+    DateofBirth: Date | null,
+}
