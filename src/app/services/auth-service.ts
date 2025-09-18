@@ -13,6 +13,17 @@ export class AuthService {
   private http = inject(HttpClient);
   private URLBase = environment.apiURL + "/auth";
 
+  public GetWebUserAuthenticatedInfo(): WebUserAuthenticatedInfo {
+    const _info: WebUserAuthenticatedInfo = {
+      ID: Number(localStorage.getItem("ID")),
+      Email: localStorage.getItem("Email") || "",
+      Name: localStorage.getItem("Name") || "",
+      LastName: localStorage.getItem("LastName") || "",
+      ProfilePhoto: localStorage.getItem("ProfilePhoto") || ""
+    }
+    return _info;
+  }
+
   public StoreWebUserAuthenticatedInfo(info: WebUserAuthenticatedInfo) {
     localStorage.setItem("ID", info.ID.toString());
     localStorage.setItem("Email", info.Email);
@@ -45,6 +56,13 @@ export class AuthService {
 
   public UpdateProfile(webuser: WebUserProfileExtendedDetailsInfo): Observable<any> {
     return this.http.put<any>(this.URLBase + "/updateprofile", webuser, { withCredentials: true });
+  }
+
+  public UpdateProfileAvatar(file: File) {
+    const Form = new FormData();
+    Form.append("newprofileavatar", file);
+
+    return this.http.put<any>(this.URLBase + "/updateprofileavatar", Form, { withCredentials: true });
   }
 
   public UpdatePassword(WebUserPassword: string): Observable<any> {

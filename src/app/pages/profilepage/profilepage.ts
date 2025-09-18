@@ -1,12 +1,12 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
 import { LayoutWebstore } from "../../layouts/layout-webstore/layout-webstore";
 import { ActivatedRoute } from '@angular/router';
 import { BrandH4 } from "../../ui/brand-h4/brand-h4";
 import { BrandPrimaryButton } from "../../ui/brand-primary-button/brand-primary-button";
 import { BrandH5 } from "../../ui/brand-h5/brand-h5";
 import { InputBrand } from "../../ui/input-brand/input-brand";
-import { ModalInfo, WebUserProfileExtendedDetailsInfo } from '../../constants/interfaces';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ModalInfo, WebUserAuthenticatedInfo, WebUserProfileExtendedDetailsInfo } from '../../constants/interfaces';
+import { FormControl, FormGroup, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ModalInfoBrand } from "../../ui/modal-info-brand/modal-info-brand";
 import { ModalType } from '../../constants/types';
 import { SYSTEM_MESSAGES } from '../../constants/system-messages';
@@ -14,16 +14,20 @@ import { Location } from '@angular/common';
 import { AuthService } from '../../services/auth-service';
 import { Changepassword } from "../../sections/changepassword/changepassword";
 import { HttpErrorResponse } from '@angular/common/http';
+import { Avatarimg } from "../../ui/avatarimg/avatarimg";
+import { DivformProfileAvatarupdate } from "../../sections/divform-profile-avatarupdate/divform-profile-avatarupdate";
 
 @Component({
   selector: 'app-profilepage',
-  imports: [LayoutWebstore, BrandH4, BrandPrimaryButton, BrandH5, InputBrand, ReactiveFormsModule, ModalInfoBrand, Changepassword],
+  imports: [LayoutWebstore, BrandH4, BrandPrimaryButton, BrandH5, InputBrand, ReactiveFormsModule, ModalInfoBrand, Changepassword, Avatarimg, DivformProfileAvatarupdate],
   templateUrl: './profilepage.html',
   styleUrl: './profilepage.css'
 })
 export class Profilepage {
 
-  formUpdateProfile = inject(AuthService);
+  @ViewChild('formAvatarProfile') formAvatarProfile!: NgForm;
+
+  serviceAuth = inject(AuthService);
 
   formProfileDetails: FormGroup = new FormGroup([]);
 
@@ -41,7 +45,8 @@ export class Profilepage {
     PhoneNumber: '',
     PhoneNumber2: '',
     DateofBirth: null,
-    ProfilePhoto: null
+    NameAvatar: '',
+    AvatarPublicPath: ''
   }
 
   ModalResultSubmit: ModalInfo = {
@@ -95,7 +100,7 @@ export class Profilepage {
     if (this.formProfileDetails.valid == false)
       return;
 
-    this.formUpdateProfile.UpdateProfile(this.formProfileDetails.value).subscribe({
+    this.serviceAuth.UpdateProfile(this.formProfileDetails.value).subscribe({
       next: (response) => {
         this.ModalResultSubmit.ModalType = ModalType.INFO;
         this.ModalResultSubmit.Show = true;
@@ -141,7 +146,6 @@ export class Profilepage {
       this.ModalResultSubmit = modalsettings;
 
     } else {
-console.log(errors);
       const modalsettings: ModalInfo = {
         ModalType: ModalType.DEBUG,
         Show: true,
@@ -160,5 +164,31 @@ console.log(errors);
       }
       this.ModalResultSubmit = modalsettings;
     }
+  }
+
+  UpdateProfileAvatarHandler(errors: any | null) {
+    if (errors) {
+      const modalsettings: ModalInfo = {
+        ModalType: ModalType.DEBUG,
+        Show: true,
+        TitleModal: SYSTEM_MESSAGES["ProfileAvatar_Update_400Title"],
+        MessageModal: SYSTEM_MESSAGES["ProfileAvatar_Update_400Message"],
+        TextPrimaryAction: 'Regresar',
+        DebugMessage: new HttpErrorResponse({
+          headers: errors.headers,
+          statusText: errors.statusCode,
+          error: ({
+            message: errors.requestMessage,
+            code: errors["status"]
+          })
+        }),
+        PrimaryAction: () => { this.HideModal(); }
+      }
+      this.ModalResultSubmit = modalsettings;
+    }
+  }
+
+  UpdateProfileAvataronPageHandler(imgsrc: string) {
+    this.ProfileDetails.AvatarPublicPath = imgsrc;
   }
 }
