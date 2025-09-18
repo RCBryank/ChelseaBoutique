@@ -17,6 +17,8 @@ export const SYSTEM_MESSAGES: Record<string, string> = {
     Password_Update_200Message: 'Tu contraseña ha sido actualizada con éxito.',
     Password_Update_400Title: 'No fue posible actualizar tu contraseña',
     Password_Update_400Message: 'Ha ocurrido un error al intentar actualizar tu contraseña. Por favor intenta más tarde.',
+    ProfileAvatar_Update_400Title: 'No fue posible actualizar el avatar',
+    ProfileAvatar_Update_400Message: 'Ha ocurrido un error al intentar actualizar tu avatar. Por favor intenta más tarde.',
 }
 
 export function GetMessageErrors(_listerrors: any): string[] {
@@ -35,6 +37,8 @@ export function GetMessageErrors(_listerrors: any): string[] {
         _errors.push("Este correo ya esta en uso.");
     if (_listerrors["passwordmismatch"])
         _errors.push("Las contraseñas no coinciden.")
+      if (_listerrors["maxFileSizeAllow"])
+        _errors.push("El tamaño maximo de carga es " + _listerrors["maxKbSizeAllowed"] + " KB");
 
     return _errors;
 }

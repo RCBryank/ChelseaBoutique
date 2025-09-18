@@ -1,4 +1,4 @@
-import { Component, EventEmitter, forwardRef, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, forwardRef, Input, Output, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule, ValidationErrors } from '@angular/forms';
 
 @Component({
@@ -23,10 +23,16 @@ export class InputBrand implements ControlValueAccessor {
   @Input() Errors: ValidationErrors | null | undefined = null;
   @Input() PlaceholderText = '';
   @Input() DefaultValue: any | null;
-  @Output() EventEmitterValueChanged = new EventEmitter<void>();
+  @Output() EventEmitterValueChanged = new EventEmitter<Event>();
+
+  @ViewChild('inputhtmlelement') inputhtmlelement!: ElementRef;
 
   value: any = '';
-  
+
+  public onClick() {
+    console.log("clicked");
+  }
+
   getErrors(): string[] {
     let _errors = [];
 
@@ -39,7 +45,7 @@ export class InputBrand implements ControlValueAccessor {
         _errors.push("No se ha incluido un dominio de correo válido. Ejemplo: direccióndecorreo@email.com.");
       if (this.Errors["emailavailability"])
         _errors.push("Este correo ya esta en uso.");
-      if(this.Errors["maxFileSizeAllow"])
+      if (this.Errors["maxFileSizeAllow"])
         _errors.push("El tamaño maximo de carga es " + this.Errors["maxKbSizeAllowed"] + " KB");
     }
 
@@ -62,6 +68,7 @@ export class InputBrand implements ControlValueAccessor {
       this.value = (event.target as HTMLInputElement)?.value;
     }
 
+    this.EventEmitterValueChanged.emit(event);
     this.propagateChange(this.value);
   }
 
@@ -80,4 +87,9 @@ export class InputBrand implements ControlValueAccessor {
   getClasses() {
     return this.Classes + ' ';
   }
+
+  public click(){
+    this.inputhtmlelement?.nativeElement.click();
+  }
 }
+

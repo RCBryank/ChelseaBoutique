@@ -8,19 +8,22 @@
 <app-layout-webstore>
     <div class="bg-white p-12 py-24 pb-80">
         <div class="flex flex-col md:flex-row">
-            <div >
-                <div class="rounded-full overflow-hidden w-52 h-52 mx-auto lg:mx-0">
-                    <img src="/images/Test/imgtest.png" class="w-full h-full" />
-                </div>
+            <div>
+                <app-avatarimg AnexedClasses="w-52 mx-auto lg:mx-0"
+                    [ImgSrc]="ProfileDetails.AvatarPublicPath"></app-avatarimg>
             </div>
             <div class="p-8 px-0 md:px-6 lg:px-12">
                 <app-brand-h4 class="inline-block">Hola,&nbsp;</app-brand-h4><app-brand-h4
                     class="font-bold inline-block">{{ProfileDetails.Name}} {{ProfileDetails.MiddleName}}
                     {{ProfileDetails.LastName}}</app-brand-h4>
                 <p class="mt-2">{{ProfileDetails.Email}}</p>
-                <app-brand-primary-button anexedclass="mt-12 mr-12 px-8 mb-2 lg:mb-0">Cambiar Foto</app-brand-primary-button>
-                <app-brand-primary-button anexedclass="px-8" (clickHandler)="SetShowChangePasswordModal(true)">Cambiar
-                    Contraseña</app-brand-primary-button>
+                <div class="mt-12 flex">
+                    <app-divform-profile-avatarupdate
+                        (eventActualizeProfileAvatar)="UpdateProfileAvataronPageHandler($event)" (eventFormResult)="UpdateProfileAvatarHandler($event)"/>
+                    <app-brand-primary-button anexedclass="px-8"
+                        (clickHandler)="SetShowChangePasswordModal(true)">Cambiar
+                        Contraseña</app-brand-primary-button>
+                </div>
             </div>
         </div>
         <!--Detalles Personales-->

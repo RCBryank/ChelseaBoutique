@@ -10,6 +10,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { Router, RouterLink } from '@angular/router';
 import { ModalInfo } from '../../constants/interfaces';
 import { ModalType } from '../../constants/types';
+import { ValidateFileSize } from '../../customvalidators/validatorfilemaxsize';
 
 @Component({
   selector: 'app-signup',
@@ -58,7 +59,7 @@ export class Signup {
         Credentials: new FormGroup({
           Email: new FormControl<string>(''),
           WebUserPassword: new FormControl<string>(''),
-          AvatarProfile: new FormControl<File | null>(null, [this.ValidateFileSize(240000)])
+          AvatarProfile: new FormControl<File | null>(null, [ValidateFileSize(240000)])
         })
       });
   }
@@ -89,22 +90,6 @@ export class Signup {
       const passwordValid = hasUpperCase && hasLowerCase && hasNumeric && hasSpecialCharacters;
 
       return !passwordValid ? { passwordStrength: true } : null;
-    }
-  }
-
-  ValidateFileSize(maxSize: number): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-
-      const file = control.value as File;
-      if (!file)
-        return null;
-
-      //console.log(file.size > maxSize);
-
-      if (file.size > maxSize)
-        return { maxFileSizeAllow: true, maxKbSizeAllowed: Math.ceil(maxSize / 1024) }
-
-      return null;
     }
   }
 

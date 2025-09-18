@@ -1,0 +1,14 @@
+<form #formAvatarProfile="ngForm" [formGroup]="formProfileAvatar" enctype="multipart/form-data" class="inline-block">
+    <app-brand-primary-button type="button" anexedclass="mr-12 px-8 mb-2 lg:mb-0"
+        (clickHandler)="ClickBeginProfileAvatarChangeHandler()" [disabled]="FormonRequest">Cambiar
+        Foto</app-brand-primary-button>
+    <p class="text-sm text-red-900">
+        @for(error of GetFormAvatarUpdateErrors(); track $index){
+        {{error}}
+        }
+    </p>
+    <app-input-brand Type="file" Accepts="image/*" #inputfileChangeProfileAvatar type="file"
+        formControlName="AvatarProfileFile" hidden></app-input-brand>
+</form>
+
+<!--(EventEmitterValueChanged)="ProfileAvatarChangeHandler($event)" -->

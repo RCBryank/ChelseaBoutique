@@ -22,7 +22,7 @@ export interface WebUserAuthenticatedInfo {
     Email: string,
     Name: string,
     LastName: string,
-    ProfilePhoto: string | null
+    ProfilePhoto: string
 }
 
 export interface WebUserProfileExtendedDetailsInfo {
@@ -30,7 +30,6 @@ export interface WebUserProfileExtendedDetailsInfo {
     Name: string,
     MiddleName: string,
     LastName: string,
-    ProfilePhoto: string | null,
     Address: string,
     PostalCode: string,
     City: string,
@@ -38,4 +37,6 @@ export interface WebUserProfileExtendedDetailsInfo {
     PhoneNumber: string,
     PhoneNumber2: string,
     DateofBirth: Date | null,
+    NameAvatar: string,
+    AvatarPublicPath: string,
 }
