@@ -24,7 +24,7 @@ export class MenuhomepageItemDropdown {
   }
 
   GetDropdownClassList() {
-    return " " + (this.Visible ? "invisible " : " ") + (this.ShowDropdown ? "animate__fadeInDown top-9" : "animate__fadeOutUp top-0");
+    return " " + (this.Visible ? "invisible " : " ") + (this.ShowDropdown ? "animate__fadeInDown top-0 my-9" : "animate__fadeOutUp top-0 pointer-events-none my-9");
   }
 
   AddListenerDropdownShow(delay: number) {
