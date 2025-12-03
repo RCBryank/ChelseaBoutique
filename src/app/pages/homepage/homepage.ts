@@ -1,17 +1,13 @@
 import { Component } from '@angular/core';
-import { LayoutWebstore } from '../../layouts/layout-webstore/layout-webstore';
+import { Footer } from "../../sections/footer/footer";
+import { MenuHomepage } from "../../sections/menu-homepage/menu-homepage";
 
 @Component({
   selector: 'app-homepage',
-  imports: [LayoutWebstore],
+  imports: [Footer, MenuHomepage],
   templateUrl: './homepage.html',
   styleUrl: './homepage.css'
 })
 export class Homepage {
 
-  Name: string | null = '';
-
-  ngOnInit() {
-    this.Name = localStorage.getItem("Name");
-  }
 }

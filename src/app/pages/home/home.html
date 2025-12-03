@@ -1,11 +1,22 @@
-<app-layout-webstore>
-    <h2 class="text-3xl font-bold underline">Prueba de comunicacion</h2>
-    <br>
-    @for(weather of weathers; track $index){
-    <div>
-        <p>Fecha: {{weather.date}}</p>
-        <p>Temperatura: {{weather.temperatureC}}</p>
-    </div>
-    <hr>
-    }
-</app-layout-webstore>
+<input type="text" placeholder="Escriba aqui un nombre" (input)="onChangeInputName($event)">
+<counter [counter]="0" [name]="name"></counter>
+
+<!-- <div class="container mx-auto py-12">
+    <form [formGroup]="fieldsFormSignUp" (ngSubmit)="onSubmit($event)">
+        <label>
+            Name
+            <input type="string" formControlName="Name"
+                [ngClass]="['bg-gray-200', 'm-2', 'border-2',fieldsFormSignUp.get('Name')?.valid?'':'border-red-500']">
+        </label>
+        <br>
+        <label>
+            Email
+            <input type="email" formControlName="Email"
+                [ngClass]="{'bg-gray-200':true, 'border-2':true, 'box-border':true , 'm-2':true , 'border-red-600': !fieldsFormSignUp.get('Email')?.valid}">
+        </label>
+        <br>
+        <input type="submit" value="Registrarse" class="bg-red-300 p-3 cursor-pointer">
+    </form>
+</div> -->
+
+<!-- [ngClass]="{'bg-gray-200':true, 'border-2':true, 'box-border':true , 'm-2':true , 'border-red-600': !fieldsFormSignUp.get('Name')?.valid}"> -->

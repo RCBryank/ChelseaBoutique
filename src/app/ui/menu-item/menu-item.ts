@@ -1,13 +1,18 @@
-import { Component, input } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { Component, Input, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-menu-item',
-  imports: [RouterLink],
+  imports: [RouterLink, NgClass],
   templateUrl: './menu-item.html',
   styleUrl: './menu-item.css'
 })
 export class MenuItem {
-  listClasses = input('font-bold cursor-pointer');
-  href = input<string>('');
+  @Input() AnexedClasses: string = '';
+  @Input() Href : string = '';
+
+  getClasses(){
+    return this.AnexedClasses;
+  }
 }
