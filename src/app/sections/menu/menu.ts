@@ -13,7 +13,6 @@ export class Menu {
   Hide = model<boolean>(true);
 
   ngOnInit() {
-    console.log(this.Show);
     if (!this.Show) {
       this.Hide.set(true);
       setTimeout((() => {
@@ -25,6 +24,7 @@ export class Menu {
 
   getClassList() {
     return " " + (this.Hide() ? "opacity-0 " : " ") + (this.Show ? "animate__slideInDown" : "animate__slideOutUp");
+    //return " " + (this.Hide() ? "opacity-0 " : " ") + (this.Show ? "" : "");
   }
 }
 /**h-0 p-[0px] m-0 */

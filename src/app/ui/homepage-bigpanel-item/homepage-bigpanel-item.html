@@ -1,0 +1,8 @@
+<div class="border-2 bg-amber-300" (mouseenter)="MouseOverHandler($event)" (mouseleave)="MouseLeaveHandler($event)">
+    <div class="relative">
+        <img src="/images/HomePage/dress_01_front.webp" />
+        <img src="/images/HomePage/dress_01_back.webp"
+            [ngClass]="{'absolute top-0 w-full opacity-0 transition-all duration-700':true, 'opacity-100 z-10':MouseOver}" />
+    </div>
+    <p>homepage-bigpanel-item works!</p>
+</div>
