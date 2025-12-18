@@ -1,1 +1,8 @@
-<input [type]="type" [ngClass]="'border-b-brand-black focus:border-b-brand-gold focus:border-b-2 focus:text-brand-golddarker transition-colors duration-400 border-b-1 font-corbel py-1 outline-hidden' + getClasses()"/>
+<input [type]="type" (change)="prechange($event)"
+    [ngClass]="'border-b-brand-black focus:border-b-brand-gold focus:border-b-2 focus:text-brand-golddarker transition-colors duration-400 border-b-1 font-corbel py-1 outline-hidden' + getClasses()" />
+<ng-content></ng-content>
+<p class="text-sm text-red-900">
+    @for (item of getErrors(); track $index) {
+    {{item}}
+    }
+</p>

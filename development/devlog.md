@@ -6,19 +6,22 @@
 <br>
 
 # Angular #
+- Components
+    - Children - X
+    - Props - X
+    - Eventos - X
+- Layouts
+- Diseño Landing Page
+- Diseño SignUp
 
 ## Conexion Angular - Backend ##
 - Request simple por API al backend
-- Components
-    - Children - X
-    - Props
-    - Eventos
 - Routes
-- Layouts
 - Forms
-- Diseño Landing Page
 - CSR
 - Autenticacion de Usuarios
+- Protected Routes
+
 
 <br>
 
@@ -33,7 +36,15 @@
 # Supabase
 - JWT
 
+# Arquitectura
 
+FrontEnd -> NET Core API -> Supabase
+
+- Habilitar Autenticacion mediante JWT para NET Core API
+- Obtener token para frontend
+- Habilitar RLS para las tablas de Supabase para que solo el servidor backend pueda insertar
+            
+go
 <br><br>
 
 ## Notas
