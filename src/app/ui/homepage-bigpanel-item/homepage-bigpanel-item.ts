@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 
 @Component({
   selector: 'app-homepage-bigpanel-item',
@@ -8,6 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './homepage-bigpanel-item.css'
 })
 export class HomepageBigpanelItem {
+
+  @Input() Image1: string = "";
+  @Input() Image2: string = "";
 
   MouseOver: boolean = false;
 

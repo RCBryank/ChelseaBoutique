@@ -1,0 +1,14 @@
+<div #ViewDetector class="w-full flex bg-brand-black">
+    <div class="w-5/8 block z-[9]">
+        <video #VideoElement src="/videos/model.mp4"  loop autoplay muted></video>
+    </div>
+    <div class="relative justify-center w-3/8">
+        <div [ngClass]="{'text-end absolute top-1/2 left-1/8 -translate-y-1/2 w-fit animate__animated':true,
+            'animate__slideInLeft animate__slower': OnViewRead()
+        }">
+            <h4
+                class="font-centuryghotic text-brand-white uppercase text-3xl tracking-wider whitespace-nowrap leading-loose ">
+                Mantente actualizado <br> al <br> trending</h4>
+        </div>
+    </div>
+</div>
