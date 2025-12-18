@@ -1,3 +1,36 @@
-<app-layout-webstore>
-    <h1>Bienvenido {{Name}}</h1>
-</app-layout-webstore>
+<app-menu-homepage></app-menu-homepage>
+<img src="images/HomePage/HomePortrait.png" class="-mt-17" />
+<div class="container mx-auto">
+  <!--Big Panel Article-->
+  <div class="h-24">
+
+  </div>
+  <div class="bg-transparent flex flex-row items-stretch gap-4 justify-between ">
+    <app-homepage-bigpanel-item class="flex-1/3" Image1="/images/HomePage/dress_01_front.webp"
+      Image2="/images/HomePage/dress_01_back.webp"></app-homepage-bigpanel-item>
+    <app-homepage-bigpanel-item class="flex-1/3" Image1="/images/HomePage/fall-front-2.jpg"
+      Image2="/images/HomePage/fall-front.jpg"></app-homepage-bigpanel-item>
+    <app-homepage-bigpanel-item class="flex-1/3" Image1="/images/HomePage/fall-gab-1.jpg"
+      Image2="/images/HomePage/fall-gab-2.webp"></app-homepage-bigpanel-item>
+  </div>
+  <!-- Banner Otono 2025 -->
+  <div class="h-32">
+
+  </div>
+  <app-banner />
+  <div class="h-32">
+
+  </div>
+</div>
+<!--Video-->
+<app-section-video />
+<!--Product Popular-->
+<div class="h-32 bg-white"></div>
+<app-popular-product></app-popular-product>
+<div class="h-64 bg-white"></div>
+<app-popular-product-right></app-popular-product-right>
+<div class="h-80 bg-white">
+</div>
+<!--End Banner-->
+<app-banner-page-end></app-banner-page-end>
+<app-footer></app-footer>

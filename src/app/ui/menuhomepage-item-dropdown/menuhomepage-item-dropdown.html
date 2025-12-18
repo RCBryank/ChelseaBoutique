@@ -1,0 +1,14 @@
+<div class="relative">
+    <button #buttonDropdown (click)="Click()"
+        class="font-centuryghotic text-sm lg:text-lg cursor-pointer tracking-wider inline-block pr-3 lg:pr-6">{{Label}}
+        <app-svg-angledown
+            [AnnexedClasses]="'absolute right-0 ' + (ShowDropdown?'bottom-0 rotate-180':'bottom-[2px] rotate-0')"></app-svg-angledown>
+    </button>
+
+    <div #divDropdown
+        [classList]="'absolute py-4 pl-4 pr-10 lg:py-6 lg:pl-6 lg:pr-18 bg-[#ffffff33] backdrop-blur-sm shadow-md animate__animated' + GetDropdownClassList()">
+        <div class="flex flex-nowrap flex-col gap-0 lg:gap-2">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>

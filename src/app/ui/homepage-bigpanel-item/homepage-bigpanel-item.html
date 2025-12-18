@@ -1,0 +1,14 @@
+<div class="bg-brand-black h-full cursor-pointer" (mouseenter)="MouseOverHandler($event)"
+    (mouseleave)="MouseLeaveHandler($event)">
+    <a class="flex flex-col h-full" href="#">
+        <div class="relative h-10/12 ">
+            <img [src]="Image1" class="object-cover w-full h-full" />
+            <img [src]="Image2" class="object-cover w-full h-full"
+                [ngClass]="{'absolute top-0 w-full opacity-0 transition-all duration-700':true, 'opacity-100 z-5':MouseOver}" />
+        </div>
+        <div class="h-2/12 px-8 py-6 text-white">
+            <h4 class="font-centuryghotic mb-4">Mock Neck Midi Dress</h4>
+            <p class="font-twcent text-4xl tracking-widest">$133.50</p>
+        </div>
+    </a>
+</div>

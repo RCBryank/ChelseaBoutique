@@ -1,0 +1,43 @@
+<div #divDetectorHomePageTopbar class="absolute top-0 h-36 w-full">
+
+</div>
+<div [classList]='"absolute top-0 h-36 w-full z-10 animate__animated " + getClassList()'>
+    <div class="container mx-auto h-full p-12">
+        <div class="flex flex-wrap justify-between h-full">
+            <div class="flex-1/4 lg:flex-1/4 xl:flex-1/3 grow-0">
+                <a href="/home">
+                    <img src="images/Resources/Logo_Black.png" class="mb-auto">
+                </a>
+            </div>
+            <div id="navbar-default" class="mb-auto flex-auto lg:flex-2/3 xl:flex-2/3">
+                <div class="flex flex-auto gap-4 lg:gap-6 xl:gap-12 justify-end">
+                    <app-menuhomepage-item>Inicio</app-menuhomepage-item>
+                    <app-menuhomepage-item-dropdown Label="Ropa" #topbarHomePage>
+                        <app-menuhomepage-item AnnexedClasses="!text-sm !lg:text-base">Toda la ropa</app-menuhomepage-item>
+                        <app-menuhomepage-item AnnexedClasses="!text-sm !lg:text-base">Vestidos</app-menuhomepage-item>
+                        <app-menuhomepage-item AnnexedClasses="!text-sm !lg:text-base">Vestidos Largos</app-menuhomepage-item>
+                        <app-menuhomepage-item AnnexedClasses="!text-sm !lg:text-base">Conjuntos</app-menuhomepage-item>
+                        <app-menuhomepage-item AnnexedClasses="!text-sm !lg:text-base">Tops + Bottoms</app-menuhomepage-item>
+                        <app-menuhomepage-item AnnexedClasses="!text-sm !lg:text-base">Romper</app-menuhomepage-item>
+                    </app-menuhomepage-item-dropdown>
+                    <app-menuhomepage-item>Colección Verano 2025</app-menuhomepage-item>
+                    <app-menuhomepage-item>Buscar</app-menuhomepage-item>
+                    <app-menuhomepage-item>Iniciar Sesión</app-menuhomepage-item>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-menu [Show]="!ShowHomePageTopBar"></app-menu>
+
+<!--
+            <button data-collapse-toggle="navbar-default" type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>-->

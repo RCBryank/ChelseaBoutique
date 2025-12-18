@@ -34,6 +34,10 @@ export const routes: Routes = [
         resolve: {
             data: HeroResolver
         }
+    },
+    {
+        path: 'test',
+        component: Home
     }
 ];
 

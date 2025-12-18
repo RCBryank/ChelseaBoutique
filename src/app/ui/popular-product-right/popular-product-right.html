@@ -1,0 +1,24 @@
+<div #ViewDetector class="flex bg-white">
+    <div class="relative flex-auto">
+        <div [ngClass]="{'absolute top-1/4 left-1/4 -translate-1/4 w-1/2 overflow-hidden p-2 animate__animated text-right':true,
+            'animate__fadeInDown': OnViewRead()
+        }">
+            <div [ngClass]="{'h-1 bg-brand-black transition-all duration-300 mb-6 animate__animated':true,
+                    'animate__slideInLeft': OnViewRead()
+            }"></div>
+            <h3 class="font-centuryghotic uppercase text-brand-black text-5xl text-nowrap mb-6">Mochila Jaime Ibiza</h3>
+            <p class="font-twcent tracking-wider text-brand-black text-6xl text-nowrap mb-6">$2,799.00</p>
+            <a href="#" class="cursor-pointer inline-block">
+                <p
+                    class="bg-brand-black w-fit hover:bg-brand-white text-brand-white hover:text-brand-black hover:outline transition-colors duration-200  font-centuryghotic tracking-wide text-2xl p-6">
+                    Ver Articulo
+                </p>
+            </a>
+        </div>
+    </div>
+    <div class="relative">
+        <div class="absolute -left-24 rounded-full border-4 border-brand-white w-4xl aspect-square">
+        </div>
+        <img src="/images/HomePage/bag_02.jpg">
+    </div>
+</div>

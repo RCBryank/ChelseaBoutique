@@ -1,0 +1,7 @@
+<div class="overflow-hidden">
+    <a (mouseover)="pointermouseover($event)" (mouseout)="pointermouseout($event)"
+        [classList]="'font-centuryghotic text-sm lg:text-lg cursor-pointer tracking-wider' + getClassList()"><ng-content></ng-content></a>
+    <div [classList]="'float-left w-full h-[2px] bg-gray-500 animate__animated ' + ClassesDecoratorHover">
+
+    </div>
+</div>
