@@ -1,0 +1,111 @@
+<!--TopBar Normal-->
+<div class="w-full h-17 bg-brand-black">
+</div>
+<app-layout-webstore>
+    <div class="h-16">
+
+    </div>
+    <div class="flex flex-row">
+        <div class="w-3xl inline-block z-10">
+            <app-product-imagepreview-slideshow [Images]="ProductImages"></app-product-imagepreview-slideshow>
+        </div>
+        <div class="px-12 py-6 flex-1 animate__animated animate__fadeInLeft animate__slow">
+            <app-brand-h2>Nombre del Producto</app-brand-h2>
+            <br>
+            <app-brand-h5>Categoria</app-brand-h5>
+            <br>
+            <app-brand-p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam et lobortis lectus. Sed
+                volutpat erat vitae tristique semper. Quisque non sollicitudin metus, eget auctor nisi. Nullam congue
+                risus justo, sed lacinia nisi commodo nec. Sed sollicitudin id lectus sed rhoncus. Curabitur finibus
+                sagittis ligula nec blandit. Pellentesque posuere mauris neque. Morbi consequat nibh et felis sodales
+                facilisis.
+
+                In placerat, ligula at laoreet mattis, eros lacus molestie augue, ac aliquet diam nisl et magna. Aliquam
+                bibendum neque mi, vitae feugiat justo venenatis non. Sed eget finibus nisi. Quisque sagittis, risus in
+                dapibus feugiat, sem ex mattis dui, vel accumsan purus enim a nunc. Nullam pharetra, tellus id interdum
+                gravida, quam dolor blandit ante, ut suscipit tortor nunc vel dui. Pellentesque sapien sapien,
+                sollicitudin nec condimentum vitae, ultrices non lacus. Fusce tristique facilisis molestie. Aliquam at
+                gravida magna, aliquet accumsan mi.</app-brand-p>
+            <br>
+            <p class="text-5xl font-twcent">$3,500.00</p>
+            <br>
+            <form (submit)="onSubmit($event)" [formGroup]="formGroup">
+                <div class="flex gap-12">
+                    <app-input-quantity-brand formControlName="cartquantity" [minnumber]="1"
+                        [maxnumber]="2"></app-input-quantity-brand>
+                    <app-brand-primary-button>Agregar al carrito</app-brand-primary-button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="h-48">
+    </div>
+    <!--Banner Tienda-->
+    <div class="h-96 overflow-hidden">
+        <img src="/images/HomePage/Banner_Otono2025.jpg" class="w-full h-full object-cover">
+    </div>
+    <!---->
+    <div class="h-32"></div>
+    <div>
+        <p>Otros articulos de MARCA</p>
+        <br>
+        <div class="flex gap-6">
+            <div class="w-1/5">
+                <a href="#">
+                    <div class="h-64 bg-white">
+                        <img src="/images/HomePage/bag_02.jpg" class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-4">
+                        <p class="font-centuryghotic">Nombre del Articulo</p>
+                        <p class="font-twcent">$3,000.00</p>
+                    </div>
+                </a>
+            </div>
+            <div class="w-1/5">
+                <a href="#">
+                    <div class="h-64 bg-white">
+                        <img src="/images/HomePage/bag_01_2.jpg" class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-4">
+                        <p class="font-centuryghotic">Nombre del Articulo</p>
+                        <p class="font-twcent">$3,000.00</p>
+                    </div>
+                </a>
+            </div>
+            <div class="w-1/5">
+                <a href="#">
+                    <div class="h-64 bg-white">
+                        <img src="/images/HomePage/bag_01_2.jpg" class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-4">
+                        <p class="font-centuryghotic">Nombre del Articulo</p>
+                        <p class="font-twcent">$3,000.00</p>
+                    </div>
+                </a>
+            </div>
+            <div class="w-1/5">
+                <a href="#">
+                    <div class="h-64 bg-white">
+                        <img src="/images/HomePage/bag_01_2.jpg" class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-4">
+                        <p class="font-centuryghotic">Nombre del Articulo</p>
+                        <p class="font-twcent">$3,000.00</p>
+                    </div>
+                </a>
+            </div>
+            <div class="w-1/5">
+                <a href="#">
+                    <div class="h-64 bg-white">
+                        <img src="/images/HomePage/bag_01_2.jpg" class="w-full h-full object-contain">
+                    </div>
+                    <div class="p-4">
+                        <p class="font-centuryghotic">Nombre del Articulo</p>
+                        <p class="font-twcent">$3,000.00</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="h-64"></div>
+</app-layout-webstore>

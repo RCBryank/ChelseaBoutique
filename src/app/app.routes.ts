@@ -8,6 +8,7 @@ import { Profilepage } from './pages/profilepage/profilepage';
 import { NgModule } from '@angular/core';
 import { HeroResolver } from './resolvers/getwebuserprofileinfo';
 import { authenticatedGuard } from './guards/authenticated-guard';
+import { Product } from './pages/product/product';
 
 
 export const routes: Routes = [
@@ -34,6 +35,10 @@ export const routes: Routes = [
         resolve: {
             data: HeroResolver
         }
+    },
+    {
+        path: 'product',
+        component: Product
     },
     {
         path: 'test',

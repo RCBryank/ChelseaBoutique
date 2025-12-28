@@ -9,5 +9,5 @@ import { Footer } from "../../sections/footer/footer";
   styleUrl: './layout-webstore.css'
 })
 export class LayoutWebstore {
-
+  
 }

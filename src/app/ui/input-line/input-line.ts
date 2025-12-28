@@ -14,7 +14,7 @@ import { GetMessageErrors } from '../../constants/system-messages';
       useExisting: forwardRef(() => InputLine),
       multi: true
     }
-  ]
+  ],
 })
 
 export class InputLine implements ControlValueAccessor {
