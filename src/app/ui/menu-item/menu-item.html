@@ -1,1 +1,6 @@
-<a class="font-centuryghotic" [routerLink]="Href"><ng-content></ng-content></a>
+<div class="h-full relative overflow-hidden" (mouseover)="MouseOverHandler($event)" (mouseout)="MouseOutHandler($event)">
+    <a class="font-centuryghotic" [routerLink]="Href"><ng-content></ng-content></a>
+    <div
+        [ngClass]="{'absolute bottom-0 h-[1px] w-full bg-brand-white animate__animated':true, 'animate__slideInLeft':MouseOver, 'animate__slideOutRight animate__faster':!MouseOver}">
+    </div>
+</div>

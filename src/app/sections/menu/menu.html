@@ -1,7 +1,23 @@
-<nav [classList]="'sticky top-0 z-10 h-[70px] bg-brand-blackdarker p-4 text-brand-white animate__animated' + getClassList()">
-    <ul class="flex flex-row gap-6">
-        <li><app-menu-item Href="/home" AnexedClasses=" text-white">Home</app-menu-item></li>
-        <li><app-menu-item Href="/crear">Crear</app-menu-item></li>
-        <li><app-menu-item Href="/perfil">Perfil</app-menu-item></li>
-    </ul>
+<nav
+    [classList]="'sticky top-0 z-10 h-[70px] bg-brand-blackdarker text-brand-white shadow-sm shadow-[#00000033] animate__animated' + getClassList()">
+    <div class="flex items-center justify-between container mx-auto">
+        <img src="/images/Resources/Logo_White.png" />
+        <div class="w-3/4">
+            <ul class="flex flex-row gap-6 justify-end">
+                <li><app-menu-item Href="/home" AnexedClasses=" text-white">Inicio</app-menu-item></li>
+                <li><app-menu-item Href="/crear">Ropa</app-menu-item></li>
+                <li><app-menu-item Href="/perfil">Coleccion Verano 2025</app-menu-item></li>
+                <li><app-menu-item-buscar
+                        (event_ToogleShowSearchBar)="toogleShowSearchBar($event)"></app-menu-item-buscar>
+                </li>
+                <li
+                    [ngClass]="{'max-w-0': SearchBarBeginHide, 'overflow-hidden w-0':true, 'animation-expand-horizontal':ShowSearchBar==true, 'animation-collapse-horizontal':ShowSearchBar==false}">
+                    <div>
+                        <app-input-buscar-header [isFocused]="ShowSearchBar" />
+                    </div>
+                </li>
+                <li><app-menu-item Href="/perfil">Iniciar Sesión</app-menu-item></li>
+            </ul>
+        </div>
+    </div>
 </nav>

@@ -10,9 +10,19 @@ import { RouterLink } from '@angular/router';
 })
 export class MenuItem {
   @Input() AnexedClasses: string = '';
-  @Input() Href : string = '';
+  @Input() Href: string = '';
 
-  getClasses(){
+  MouseOver: boolean = false;
+
+  getClasses() {
     return this.AnexedClasses;
+  }
+
+  MouseOverHandler(event: any) {
+    this.MouseOver = true;
+  }
+
+  MouseOutHandler(event: any) {
+    this.MouseOver = false;
   }
 }

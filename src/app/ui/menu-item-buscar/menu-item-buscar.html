@@ -1,0 +1,7 @@
+<div [ngClass]="{'h-full relative overflow-hidden':true}" (mouseover)="MouseOverHandler($event)"
+    (mouseout)="MouseOutHandler($event)">
+    <button class="font-centuryghotic cursor-pointer" (click)="toogleShowSearchBar()">Buscar</button>
+    <div
+        [ngClass]="{'absolute bottom-0 h-[1px] w-full bg-brand-white animate__animated':true, 'animate__slideInLeft':MouseOver, 'animate__slideOutRight animate__faster':!MouseOver}">
+    </div>
+</div>

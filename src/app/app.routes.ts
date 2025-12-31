@@ -8,6 +8,7 @@ import { Profilepage } from './pages/profilepage/profilepage';
 import { NgModule } from '@angular/core';
 import { HeroResolver } from './resolvers/getwebuserprofileinfo';
 import { authenticatedGuard } from './guards/authenticated-guard';
+import { OurPolicies } from './pages/our-policies/our-policies';
 
 
 export const routes: Routes = [
@@ -38,6 +39,10 @@ export const routes: Routes = [
     {
         path: 'test',
         component: Home
+    },
+    {
+        path: 'our-policies',
+        component: OurPolicies
     }
 ];
 

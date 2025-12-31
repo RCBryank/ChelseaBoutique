@@ -71,8 +71,8 @@
           "defaultConfiguration": "development",
           "options": {
             "ssl": true,
-            "sslCert": "./development/localhost.pem",
-            "sslKey": "./development/localhost-key.pem",
+            "sslCert": "../Dev/development/localhost.pem",
+            "sslKey": "../Dev/development/localhost-key.pem",
             "port": 4200
           }
         },
